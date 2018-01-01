@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+
+require "nmap2json"
+require 'command_lion'
+
+CommandLion::App.run do
+
+	name "nmap2json"
+	description "convert your nmap XML output to beatiful JSON"
+	version Nmap2json::VERSION
+
+	command :convert do
+		flag "convert"
+		description "convert nmap xml output to json"
+		type :string
+    action do
+      unless File.file?(argument)
+				puts "#{argument} isn't a file!"
+				exit 1
+			end
+			puts Nmap2json.parse(argument, save: options[:save] || false)	
+		end
+
+    option :save do
+      flag "--save"
+			type :string
+      description "save output to a given file"
+    end
+  end
+
+end
