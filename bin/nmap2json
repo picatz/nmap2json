@@ -18,7 +18,7 @@ CommandLion::App.run do
         puts "#{argument} isn't a file!"
         exit 1
       end
-      puts Nmap2json.parse_xml(argument, save: options[:save] || false)	
+      puts Nmap2json.parse_xml(argument, save: options[:save].argument || false)	
     end
 
     option :save do
