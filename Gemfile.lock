@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    nmap2json (1.0.1)
+    nmap2json (1.0.2)
       activesupport
       command_lion
 
